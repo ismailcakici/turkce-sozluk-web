@@ -9,7 +9,7 @@ export const signLanguage = async (letter:string) : Promise<string> => {
         const response = await axios.get(`${baseUrl}/assets/img/isaret/${letter}.gif`);
         return response.data;
     } catch (error) {
-        console.log("An error occured while fetching sign language data.")
-        throw new Error("Error while fetching gif.");
+        console.error("An error occured while fetching sign language data.",error)
+        throw error;
     }
 }

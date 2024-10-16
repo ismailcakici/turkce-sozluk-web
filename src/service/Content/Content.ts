@@ -8,6 +8,6 @@ export const fetchContentData = async (): Promise<ContentResponse[]> => {
         return response.data;
     } catch (error) {
         console.error("Error fetching content data", error);
-         throw error;
+        throw error;
     }
 };
