@@ -1,0 +1,1 @@
+export const SpecialChars: string[] = ["ç","ğ","ı","ö","ş","ü","â","î","û"];
