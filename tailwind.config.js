@@ -8,6 +8,10 @@ module.exports = {
         primary: '#D51C24',
         secondary: '#0F7A74',
       },
+      fontFamily: {
+        'merriweather': ['Merriweather', 'serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+      },
     },
   },
   daisyui: {
