@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchContentData } from "../../service/Content/Content";
 import { ContentResponse } from "../../types/Content/ContentResponse";
 import MainContentCard from "../../components/Content/MainContentCard/MainContentCard";
+import FrequentlyMistakes from "../../components/Content/FrequentlyMistakes/FrequentlyMistakes";
 
 const Content: React.FC = () => {
   const [contentData, setContentData] = useState<ContentResponse>();
@@ -45,6 +46,16 @@ const Content: React.FC = () => {
                   title="Bir Deyim-Atasözü"
                   content={atasoz.madde}
                   description={atasoz.anlam}
+                  key={idx}
+                />
+              );
+            })}
+            {contentData?.syyd.map((syyd, idx) => {
+              return (
+                <FrequentlyMistakes
+                  title="Sıkça Yapılan Yanlışlar"
+                  trueWord={syyd.dogrukelime}
+                  wrongWord={syyd.yanliskelime}
                   key={idx}
                 />
               );
