@@ -5,11 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          default: '#F04F57',
-          dark: '#D51C24',
-          light: '#FEF8F8',
-        },
+        primary: '#D51C24',
         secondary: '#0F7A74',
         gray: {
           100: '#E8DEDF',
@@ -27,7 +23,7 @@ module.exports = {
     themes: [
       {
         light: {
-          primary: '#F04F57',
+          primary: '#D51C24',
           secondary: '#0F7A74',
           'primary-light': '#FEF8F8',
           'primary-dark': '#D51C24',
