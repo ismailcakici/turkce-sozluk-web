@@ -4,6 +4,7 @@ import { ContentResponse, Kelime } from "../../types/Content/ContentResponse";
 import MainContentCard from "../../components/Content/MainContentCard/MainContentCard";
 import FrequentlyMistakes from "../../components/Content/FrequentlyMistakes/FrequentlyMistakes";
 import { KelimeGrubu } from "../../types/Word/WordResponse";
+import Header from "../../components/Header/Header";
 
 const Content: React.FC = () => {
   const [contentData, setContentData] = useState<ContentResponse>();
@@ -38,6 +39,7 @@ const Content: React.FC = () => {
   return (
     <div className="w-full flex flex-col items-center lg:w-3/12 bg-base-300 drop-shadow-lg min-h-screen rounded-box mt-5 lg:mt-0 transform transition-all">
       <div className="flex flex-col items-center justify-center m-5 gap-5">
+        <Header />
         {loading ? (
           <div className="loading loading-spinner loading-md"></div>
         ) : (

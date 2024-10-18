@@ -43,7 +43,7 @@ const Search: React.FC<SearchProps> = ({ word, setWord, searchWord }) => {
 
   return (
     <div>
-      <label className="input input-bordered rounded-box flex items-center text-xs md:text-sm lg:text-base my-3">
+      <label className="input input-bordered rounded-box flex items-center text-xs md:text-sm lg:text-base">
         <input
           type="text"
           className="grow"

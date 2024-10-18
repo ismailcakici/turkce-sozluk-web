@@ -9,7 +9,7 @@ const SpecialCharList: React.FC<SpecialCharsProps> = (
   props: SpecialCharsProps
 ) => {
   return (
-    <div className="flex flex-wrap sm:w-max rounded-box items-center gap-3 p-3 bg-base-200">
+    <div className="flex flex-wrap sm:w-max rounded-box items-center gap-3 p-3 bg-base-200 mt-3">
       {SpecialChars.map((char, idx) => {
         return (
           <div

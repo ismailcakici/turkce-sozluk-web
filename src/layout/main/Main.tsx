@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Header from "../../components/Header/Header";
 import Search from "../../components/Search/Search";
 import SpecialCharList from "../../components/SpecialCharList/SpecialCharList";
 import { WordResponse } from "../../types/Word/WordResponse";
 import { fetchWordData } from "../../service/SearchWord/SearchWord";
+import WordResponseData from "../../components/WordResponseData/WordResponseData";
 
 const Main: React.FC = () => {
   const [word, setWord] = useState("");
@@ -25,9 +25,17 @@ const Main: React.FC = () => {
   };
   return (
     <div className="w-full lg:w-4/6 bg-base-300 drop-shadow-lg min-h-screen rounded-box transform transition-all p-5">
-      <Header />
       <Search word={word} setWord={setWord} searchWord={searchWord} />
       <SpecialCharList onClick={handleSpecialCharClick} />
+      {loading ? (
+        <div className="flex w-full items-center justify-center mt-5">
+          <div className="loading loading-spinner loading-lg"></div>
+        </div>
+      ) : (
+        <div className="flex w-full mt-5">
+          <WordResponseData wordResponse={wordData} />
+        </div>
+      )}
     </div>
   );
 };

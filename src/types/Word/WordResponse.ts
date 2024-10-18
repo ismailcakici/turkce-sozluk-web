@@ -58,6 +58,7 @@ export interface AnlamlarListe {
     ozel_mi: string;
     egik_mi: string;
     lisan_kodu: string;
+    telaffuz: string;
     lisan: string;
     birlesikler: string;
     anlamlarListe: AnlamlarListe[];

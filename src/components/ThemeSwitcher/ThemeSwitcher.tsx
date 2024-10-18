@@ -15,10 +15,7 @@ const ThemeSwitcher: React.FC = () => {
   };
 
   return (
-    <div
-      className=" bg-primary rounded-box shadow-lg cursor-pointer p-3 lg:p-4"
-      onClick={toggleTheme}
-    >
+    <div className="cursor-pointer p-3 lg:p-4" onClick={toggleTheme}>
       {theme === "light" ? <FaMoon /> : <FaSun />}
     </div>
   );
