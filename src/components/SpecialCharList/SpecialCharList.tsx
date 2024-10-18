@@ -2,7 +2,7 @@ import React from "react";
 import { SpecialChars } from "../../constants/SpecialChars/SpecialChars";
 
 interface SpecialCharsProps {
-  onClick: () => void;
+  onClick: (char: string) => void;
 }
 
 const SpecialCharList: React.FC<SpecialCharsProps> = (
@@ -13,10 +13,11 @@ const SpecialCharList: React.FC<SpecialCharsProps> = (
       {SpecialChars.map((char, idx) => {
         return (
           <div
+            onClick={() => props.onClick(char)}
             key={idx}
             className="rounded-lg cursor-pointer bg-base-300 hover:bg-base-100 py-1 px-3"
           >
-            {char}
+            <p className="text-xs md:text-sm lg:text-base">{char}</p>
           </div>
         );
       })}
