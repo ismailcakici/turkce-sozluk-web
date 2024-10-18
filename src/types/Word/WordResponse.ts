@@ -38,6 +38,10 @@ export interface AnlamlarListe {
     kisa_adi: string;
     ekno: string;
   }
+
+  export interface KelimeGrubu {
+    [key: string]: string[];
+  }
   
   export interface WordResponse {
     madde_id: string;
