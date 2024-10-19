@@ -1,6 +1,7 @@
 import React from "react";
 import { WordResponse } from "../../types/Word/WordResponse";
 import { AiFillSound } from "react-icons/ai";
+import Collapse from "../Collapse/Collapse";
 
 interface WordResponseProps {
   wordResponse?: WordResponse[];
@@ -93,6 +94,16 @@ const WordResponseData: React.FC<WordResponseProps> = (
                         </div>
                       );
                     })}
+                  </div>
+                  <div>
+                    <Collapse
+                      title="Birleşik Kelimeler"
+                      birlesikler={word.birlesikler}
+                    />
+                    <Collapse
+                      title="Atasözleri,Deyimler veya Kalıp Sözler"
+                      atasozleri={word.atasozu}
+                    />
                   </div>
                 </>
               }

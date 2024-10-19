@@ -8,6 +8,7 @@ import WordResponseData from "../../components/WordResponseData/WordResponseData
 const Main: React.FC = () => {
   const [word, setWord] = useState("");
   const [wordData, setWordData] = useState<WordResponse[]>();
+  const [initialState, setInitialState] = useState(true);
   const [loading, setLoading] = useState(false);
 
   const handleSpecialCharClick = (char: string) =>
@@ -22,7 +23,9 @@ const Main: React.FC = () => {
       console.error("Error occured while fetching word data", error);
     }
     setLoading(false);
+    setInitialState(false);
   };
+
   return (
     <div className="w-full lg:w-4/6 bg-base-300 drop-shadow-lg min-h-screen rounded-box transform transition-all p-5">
       <Search word={word} setWord={setWord} searchWord={searchWord} />
@@ -33,7 +36,7 @@ const Main: React.FC = () => {
         </div>
       ) : (
         <div className="flex w-full mt-5">
-          <WordResponseData wordResponse={wordData} />
+          {!initialState && <WordResponseData wordResponse={wordData} />}
         </div>
       )}
     </div>

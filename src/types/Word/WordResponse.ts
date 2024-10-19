@@ -42,6 +42,12 @@ export interface AnlamlarListe {
   export interface KelimeGrubu {
     [key: string]: string[];
   }
+
+  export interface Atasozu { 
+    madde_id: string;
+    madde: string;
+    on_taki?: string | null
+  }
   
   export interface WordResponse {
     madde_id: string;
@@ -62,6 +68,6 @@ export interface AnlamlarListe {
     lisan: string;
     birlesikler: string;
     anlamlarListe: AnlamlarListe[];
-    atasozu?: { madde_id: string; madde: string; on_taki?: string | null }[];
+    atasozu?: Atasozu[];
   }
   
