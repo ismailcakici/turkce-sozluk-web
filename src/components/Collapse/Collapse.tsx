@@ -5,12 +5,14 @@ interface CollapseProps {
   title: string;
   birlesikler?: string;
   atasozleri?: Atasozu[];
+  onItemClick: (item: string) => void;
 }
 
 const Collapse: React.FC<CollapseProps> = ({
   title,
   birlesikler,
   atasozleri,
+  onItemClick,
 }) => {
   return (
     <div className="collapse bg-base-200 shadow-lg my-3 text-sm sm:text-base">
@@ -26,6 +28,7 @@ const Collapse: React.FC<CollapseProps> = ({
                     <li
                       className="outline outline-1 p-1 hover:underline cursor-pointer"
                       key={idx}
+                      onClick={() => onItemClick(birlesik)}
                     >
                       {birlesik}
                     </li>
@@ -40,6 +43,7 @@ const Collapse: React.FC<CollapseProps> = ({
                     <li
                       className="outline outline-1 p-1 hover:underline cursor-pointer"
                       key={idx}
+                      onClick={() => onItemClick(atasoz.madde)}
                     >
                       {atasoz.on_taki && atasoz.on_taki}
                       {atasoz.madde}

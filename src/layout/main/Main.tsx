@@ -26,6 +26,11 @@ const Main: React.FC = () => {
     setInitialState(false);
   };
 
+  const handleItemClick = (clickedWord: string) => {
+    setWord(clickedWord);
+    searchWord(clickedWord);
+  };
+
   return (
     <div className="w-full lg:w-4/6 bg-base-300 drop-shadow-lg min-h-screen rounded-box transform transition-all p-5">
       <Search word={word} setWord={setWord} searchWord={searchWord} />
@@ -36,7 +41,12 @@ const Main: React.FC = () => {
         </div>
       ) : (
         <div className="flex w-full mt-5">
-          {!initialState && <WordResponseData wordResponse={wordData} />}
+          {!initialState && (
+            <WordResponseData
+              wordResponse={wordData}
+              onItemClick={handleItemClick}
+            />
+          )}
         </div>
       )}
     </div>

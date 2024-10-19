@@ -6,6 +6,7 @@ import SignLanguage from "../SignLanguage/SignLanguage";
 
 interface WordResponseProps {
   wordResponse?: WordResponse[];
+  onItemClick: (word: string) => void;
 }
 
 const WordResponseData: React.FC<WordResponseProps> = (
@@ -107,12 +108,14 @@ const WordResponseData: React.FC<WordResponseProps> = (
                         <Collapse
                           title="Birleşik Kelimeler"
                           birlesikler={word.birlesikler}
+                          onItemClick={props.onItemClick}
                         />
                       )}
                       {word.atasozu && (
                         <Collapse
                           title="Atasözleri,Deyimler veya Kalıp Sözler"
                           atasozleri={word.atasozu}
+                          onItemClick={props.onItemClick}
                         />
                       )}
                     </div>
