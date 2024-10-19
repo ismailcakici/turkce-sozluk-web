@@ -4,7 +4,7 @@ import { baseUrl } from "../../constants/BaseURL/BaseURL";
 
 export const fetchWordData = async (word: string): Promise<WordResponse[]> => {
   try {
-    const response = await axios.get<WordResponse[]>(`${baseUrl}/gts?ara=${word}`);
+    const response = await axios.get<WordResponse[]>(`${baseUrl}/gts?ara=${word.trim()}`);
     return response.data;
   } catch (error) {
     console.error("Error fetching word data", error);
