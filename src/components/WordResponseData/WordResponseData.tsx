@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { WordResponse } from "../../types/Word/WordResponse";
 import { AiFillSound } from "react-icons/ai";
 import Collapse from "../Collapse/Collapse";
 import SignLanguage from "../SignLanguage/SignLanguage";
+import { fetchAudioUrl } from "../../utils/VoiceCode/VoiceCode";
 
 interface WordResponseProps {
   wordResponse?: WordResponse[];
@@ -12,6 +13,19 @@ interface WordResponseProps {
 const WordResponseData: React.FC<WordResponseProps> = (
   props: WordResponseProps
 ) => {
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+
+  const playAudio = async (word: string) => {
+    try {
+      const audioUrl = await fetchAudioUrl(word);
+      const newAudio = new Audio(audioUrl);
+      setAudio(newAudio);
+      newAudio.play();
+    } catch (error) {
+      console.error("Ses dosyası bulunamadı", error);
+    }
+  };
+
   return (
     <div className="flex flex-col w-full p-5">
       {props.wordResponse === undefined ||
@@ -31,7 +45,10 @@ const WordResponseData: React.FC<WordResponseProps> = (
                         {word.madde}
                         {word.taki && ", -" + word.taki}
                       </h1>
-                      <AiFillSound className="cursor-pointer" />
+                      <AiFillSound
+                        className="cursor-pointer"
+                        onClick={() => playAudio(word.madde)}
+                      />
                     </div>
                     <div className="flex gap-1 my-2 text-secondary italic text-sm sm:text-base">
                       {word.telaffuz && <p>({word.telaffuz}),</p>}
