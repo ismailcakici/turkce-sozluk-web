@@ -13,7 +13,7 @@ const Collapse: React.FC<CollapseProps> = ({
   atasozleri,
 }) => {
   return (
-    <div className="collapse bg-base-200 shadow-lg my-3">
+    <div className="collapse bg-base-200 shadow-lg my-3 text-sm sm:text-base">
       <input type="checkbox" />
       <div className="collapse-title text-base">{title}</div>
       <div className="collapse-content">
