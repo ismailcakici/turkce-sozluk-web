@@ -26,7 +26,9 @@ const WordResponseData: React.FC<WordResponseProps> = (
                   <>
                     <div className="flex items-center text-xl sm:text-3xl lg:text-4xl gap-5">
                       <h1 className="font-merriweather font-bold">
+                        {word.on_taki && word.on_taki}
                         {word.madde}
+                        {word.taki && ", -" + word.taki}
                       </h1>
                       <AiFillSound className="cursor-pointer" />
                     </div>
@@ -47,7 +49,7 @@ const WordResponseData: React.FC<WordResponseProps> = (
                               {anlam.ozelliklerListe?.map((ozellik, idx) => {
                                 return (
                                   <div
-                                    className="text-secondary ml-1"
+                                    className="text-secondary italic ml-1"
                                     key={idx}
                                   >
                                     {ozellik.tam_adi}

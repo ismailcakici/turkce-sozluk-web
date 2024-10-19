@@ -55,6 +55,7 @@ export interface AnlamlarListe {
     kelime_no: string;
     cesit: string;
     anlam_gor: string;
+    taki?: string;
     on_taki?: string | null;
     madde: string;
     madde_html: string;

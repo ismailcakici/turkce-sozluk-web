@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import autoCompleteData from "../../constants/AutoComplete/AutoComplete.json";
 
@@ -17,6 +17,7 @@ const Search: React.FC<SearchProps> = ({ word, setWord, searchWord }) => {
     autoCompleteData as AutoCompleteItem[];
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.target.value;
@@ -41,8 +42,31 @@ const Search: React.FC<SearchProps> = ({ word, setWord, searchWord }) => {
     setShowSuggestions(false);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      searchWord(word);
+      setShowSuggestions(false);
+    }
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      wrapperRef.current &&
+      !wrapperRef.current.contains(event.target as Node)
+    ) {
+      setShowSuggestions(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div>
+    <div ref={wrapperRef}>
       <label className="input input-bordered rounded-box flex items-center text-xs md:text-sm lg:text-base">
         <input
           type="text"
@@ -50,15 +74,18 @@ const Search: React.FC<SearchProps> = ({ word, setWord, searchWord }) => {
           placeholder="Güncel Türkçe Sözlük'te Ara"
           value={word}
           onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
         <button
-          onClick={() => searchWord(word)}
+          onClick={() => {
+            searchWord(word);
+            setShowSuggestions(false);
+          }}
           className="btn absolute btn-success rounded-box right-5"
         >
           <FaSearch />
         </button>
       </label>
-
       {showSuggestions && (
         <ul className="absolute bg-base-100 border rounded-box shadow-lg w-[90%] sm:w-[95%] max-h-80 overflow-auto z-10">
           {filteredSuggestions.length > 0 ? (
