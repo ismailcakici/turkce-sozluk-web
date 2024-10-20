@@ -4,6 +4,7 @@ import SpecialCharList from "../../components/SpecialCharList/SpecialCharList";
 import { WordResponse } from "../../types/Word/WordResponse";
 import { fetchWordData } from "../../service/SearchWord/SearchWord";
 import WordResponseData from "../../components/WordResponseData/WordResponseData";
+import logo from "../../assets/image/logo512.png";
 
 const Main: React.FC = () => {
   const [word, setWord] = useState("");
@@ -41,7 +42,11 @@ const Main: React.FC = () => {
         </div>
       ) : (
         <div className="flex w-full mt-5">
-          {!initialState && (
+          {initialState ? (
+            <div className="w-full h-full flex items-center justify-center">
+              <img className="grayscale opacity-10" src={logo} alt="tdk-logo" />
+            </div>
+          ) : (
             <WordResponseData
               wordResponse={wordData}
               onItemClick={handleItemClick}
