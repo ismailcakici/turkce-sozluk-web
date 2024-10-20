@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/turkce-sozluk-web/static/css/main.04a559bf.css",
+    "main.js": "/turkce-sozluk-web/static/js/main.2d5b31d0.js",
+    "static/media/logo512.png": "/turkce-sozluk-web/static/media/logo512.a8069a308cb630ba705b.png",
+    "index.html": "/turkce-sozluk-web/index.html",
+    "main.04a559bf.css.map": "/turkce-sozluk-web/static/css/main.04a559bf.css.map",
+    "main.2d5b31d0.js.map": "/turkce-sozluk-web/static/js/main.2d5b31d0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04a559bf.css",
+    "static/js/main.2d5b31d0.js"
+  ]
+}
